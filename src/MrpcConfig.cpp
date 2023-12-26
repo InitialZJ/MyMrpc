@@ -36,3 +36,23 @@ void MrpcConfig::LoadConfigFile(const char* config_file) {
     std::cout << "port:" << src_buf << std::endl;
   }
 }
+
+std::string MrpcConfig::Load(const std::string& key) {
+  if (m_configure.count(key)) {
+    return m_configure[key];
+  } else {
+    return "";
+  }
+}
+
+std::string MrpcConfig::Trim(std::string src_buf) {
+  int idx = src_buf.find_first_not_of(' ');
+  if (idx != -1) {
+    src_buf = src_buf.substr(idx, src_buf.size() - idx);
+  }
+  idx = src_buf.find_last_not_of(' \n');
+  if (idx != -1) {
+    src_buf = src_buf.substr(0, idx + 1);
+  }
+  return src_buf;
+}
