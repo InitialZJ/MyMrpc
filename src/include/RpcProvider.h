@@ -12,7 +12,7 @@
 #include <string>
 
 // rpc网络服务类
-class RcpProvider {
+class RpcProvider {
  public:
   void NotifyService(google::protobuf::Service* service);
 
@@ -21,7 +21,7 @@ class RcpProvider {
 
   void OnConnection(const muduo::net::TcpConnectionPtr& conn);
 
-  void OnMessage(const muduo::net::TcpConnectionPtr&, muduo::net::Buffer*, muduo::Timestammp);
+  void OnMessage(const muduo::net::TcpConnectionPtr&, muduo::net::Buffer*, muduo::Timestamp);
 
   void callmeback(const muduo::net::TcpConnectionPtr& conn, google::protobuf::Message* response);
 
