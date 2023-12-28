@@ -13,6 +13,18 @@
 
 // rpc网络服务类
 class RcpProvider {
+ public:
+  void NotifyService(google::protobuf::Service* service);
+
+  // 启动网络调用函数
+  void Run();
+
+  void OnConnection(const muduo::net::TcpConnectionPtr& conn);
+
+  void OnMessage(const muduo::net::TcpConnectionPtr&, muduo::net::Buffer*, muduo::Timestammp);
+
+  void callmeback(const muduo::net::TcpConnectionPtr& conn, google::protobuf::Message* response);
+
  private:
   struct ServiceInfo {
     google::protobuf::Service* service_ptr;
