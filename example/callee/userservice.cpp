@@ -8,7 +8,7 @@
 #include "user.pb.h"
 
 std::string HelloQ(std::string name) {
-  std::string s = "hello " + name + "!";
+  std::string s = "hello " + name + "!!!";
   return s;
 }
 
@@ -19,13 +19,13 @@ class UserService : public fixbug::UserServiceRpc {
              fixbug::HelloReponse* response, google::protobuf::Closure* done) {
     std::string name = request->name();
     std::string rs = HelloQ(name);
+    std::cout << "doing local service: Hello, args: name: " << name << std::endl;
     response->set_hello(rs);
     done->Run();
   }
 
   bool Login(std::string name, std::string pwd) {
-    std::cout << "doing local service: Login" << std::endl;
-    std::cout << "name: " << name << "pwd: " << pwd << std::endl;
+    std::cout << "doing local service: Login, args: name: " << name << ", pwd: " << pwd << std::endl;
     return true;
   }
 

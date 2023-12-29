@@ -49,8 +49,7 @@ void RpcProvider::Run() {
       std::bind(&RpcProvider::OnMessage, this, std::placeholders::_1,
                 std::placeholders::_2, std::placeholders::_3));
   server.setThreadNum(4);
-  std::cout << "Rpc start"
-            << " ip: " << ip << " port: " << port << std::endl;
+  std::cout << "Rpc start at ip: " << ip << " port: " << port << std::endl;
 
   Zookeeperutil zk;
   zk.start();

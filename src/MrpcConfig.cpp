@@ -33,7 +33,7 @@ void MrpcConfig::LoadConfigFile(const char* config_file) {
     key = src_buf.substr(0, idx);
     src_buf = src_buf.substr(idx + 1, src_buf.size() - idx - 1);
     m_configure[key] = src_buf;
-    std::cout << "port:" << src_buf << std::endl;
+    std::cout << key << ": " << src_buf << std::endl;
   }
 }
 
