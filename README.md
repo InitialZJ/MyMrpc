@@ -53,6 +53,8 @@ sudo make
 sudo make install
 ```
 
+
+
 ## 使用方法
 
 修改`MyMrpc/CMakeLists.txt`，将第11行、27行的两个路径换成你自己的，执行命令进行编译
@@ -69,7 +71,28 @@ make
 
 ![](https://raw.githubusercontent.com/InitialZJ/MarkdownPhotoes/main/res/comsumer.jpg)
 
-## TODO
+
+
+## Tips
+
+代码中的`user.pb.h`、`user.pb.cc`、`rpc_header.pb.h`和`rpc_header.pb.cc`都是使用protoc生成的，生成方法
+
+```bash
+# user
+cd example
+protoc user.proto --cpp_out="./"
+```
+
+```bash
+# rpc_header
+cd src
+protoc rpc_header.proto --cpp_out="./"
+mv rpc_header.pb.h ./include
+```
+
+
+
+## Todoes
 
 1. 原作者实现了比较简陋的`MrpcLog`类，但并没有使用，后续可以考虑换成`MyMuduo`中的`Logger`类；
 2. 客户端向服务器端发起请求的方式是原始的Linux库中的`connect`和`send`等方法，可以换成`muduo`中的`TcpClient`。
