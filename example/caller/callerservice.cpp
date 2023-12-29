@@ -8,7 +8,7 @@
 int main(int argc, char** argv) {
   MrpcApplication::Init(argc, argv);
 
-  fixbug::UserServiceRpc_Stub sub(new MrpcChannel());
+  fixbug::UserServiceRpc_Stub stub(new MrpcChannel());
 
   fixbug::LoginRequest request;
   request.set_name("李志杰");
@@ -16,7 +16,7 @@ int main(int argc, char** argv) {
   fixbug::LoginResponse response;
   MrpcController controller;
 
-  sub.Login(&controller, &request, &response,
+  stub.Login(&controller, &request, &response,
             nullptr);  // 会自动调用rpcchannel的callmethod
 
   if (!controller.Failed()) {
@@ -33,7 +33,7 @@ int main(int argc, char** argv) {
     fixbug::HelloRequest request2;
     request2.set_name("李志杰");
     fixbug::HelloReponse response2;
-    sub.Hello(nullptr, &request2, &response2, nullptr);
+    stub.Hello(nullptr, &request2, &response2, nullptr);
 
     std::cout << response2.hello() << std::endl;
     std::cout << "远程rpc函数执行成功" << std::endl;
