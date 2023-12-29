@@ -44,7 +44,7 @@ sudo bin/zkServer.sh start
 
 最后终端输出`Starting zookeeper ... STARTED`代表启动成功，关闭的命令是`sudo bin/zkServer.sh stop`
 
-因为要用到zookeeper的库，所以还需要编译安装client库，默认安装路径是`/usr/local/include/zookeeper`，这个路径也要记住
+因为要用到zookeeper的库，所以还需要编译安装client库，执行以下命令会默认安装到`/usr/local/include/zookeeper`，这个路径也要记住
 
 ```bash
 cd zookeeper-client/zookeeper-client-c
