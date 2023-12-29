@@ -8,21 +8,9 @@
 template <typename T>
 class Lockqueue {
  public:
-  T pop() {
-    std::unique_lock<std::mutex> lock(mt);
-    while (line.size() == 0) {
-      cond.wait(lock);
-    }
-    T data = line.front();
-    line.pop();
-    return data;
-  }
+  T pop();
 
-  void push(T data) {
-    std::lock_guard<std::mutex> lock(mt);
-    line.push(data);
-    cond.notify_one();
-  }
+  void push(T data);
 
  private:
   std::queue<T> line;
