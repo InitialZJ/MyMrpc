@@ -1,6 +1,6 @@
 # MyMrpc
 
-仿照[mrpc](https://github.com/stolendance/mrpc)写的rpc框架，使用protobuf进行序列化与反序列化，使用muduo作为底层通信框架，实现了`Login`和`Hello`两个RPC函数。
+仿照[mrpc](https://github.com/stolendance/mrpc)写的rpc框架，使用muduo作为底层通信框架，使用protobuf进行序列化与反序列化，使用zookeeper作为函数注册中心，实现了`Login`和`Hello`两个RPC函数。
 
 
 
