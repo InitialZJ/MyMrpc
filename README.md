@@ -26,6 +26,7 @@ sudo ldconfig
 
 ```bash
 git clone https://github.com/chenshuo/muduo.git
+cd muduo
 ./build.sh install
 ```
 
