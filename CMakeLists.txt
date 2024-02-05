@@ -8,7 +8,7 @@ set(CMAKE_BUILD_TYPE "Debug")
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
 
-set(MUDUO_PATH "/home/wsh/build/release-install-cpp11")
+set(MUDUO_PATH "/home/lzj/build/release-install-cpp11")
 find_path(Muduo_INCLUDE_DIR muduo "${MUDUO_PATH}/include")
 find_path(Muduo_LIBRARY_DIR libmuduo_net.a "${MUDUO_PATH}/lib")
 set(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} ${Muduo_LIBRARY_DIR})
