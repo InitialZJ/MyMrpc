@@ -4,6 +4,10 @@ set(SRC_LIST rpc_header.pb.cc RpcProvider.cpp MrpcApplication.cpp MrpcConfig.cpp
 # 生成动态库 头文件 在顶层的cmakelist中 已经找到
 add_library(mrpc ${SRC_LIST})
 
-target_link_libraries(mrpc ${MUDUO_PATH}/lib/libmuduo_net.a)
-target_link_libraries(mrpc ${MUDUO_PATH}/lib/libmuduo_base.a)
-target_link_libraries(mrpc pthread zookeeper_mt ${Protobuf_LIBRARY})
+target_link_libraries(mrpc
+    ${muduo_net}
+    ${muduo_base}
+    pthread
+    zookeeper_mt
+    ${Protobuf_LIBRARY}
+)
